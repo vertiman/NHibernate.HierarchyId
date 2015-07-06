@@ -20,7 +20,7 @@ namespace NHibernate.HierarchyId.Projections
         {
             var loc = position * GetHashCode();
             var val = _projection.ToSqlString(criteria, loc, criteriaQuery, enabledFilters);
-            val = StringHelper.RemoveAsAliasesFromSql(val);
+            val = HierarchyIdStringHelper.RemoveAsAliasesFromSql(val);
 
             var ret = new SqlStringBuilder()
                 .Add(val)
@@ -50,6 +50,14 @@ namespace NHibernate.HierarchyId.Projections
         public override SqlString ToGroupSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery, IDictionary<string, IFilter> enabledFilters)
         {
             return _projection.ToGroupSqlString(criteria, criteriaQuery, enabledFilters);
+        }
+    }
+
+    public static class HierarchyIdStringHelper
+    {
+        public static SqlString RemoveAsAliasesFromSql(SqlString sql)
+        {
+            return sql.Substring(0, sql.LastIndexOfCaseInsensitive(" as "));
         }
     }
 }

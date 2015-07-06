@@ -24,6 +24,22 @@ namespace Tests
         }
 
         [Fact]
+        public void IsDescendantOfTestN()
+        {
+            using (var s = Config.SessionFactory.OpenSession())
+            {
+                var parent = Items.First();
+
+                var childs = s.QueryOver<HierarchyModel>()
+                              .Where(x => x.Hid.IsDescendantOf(parent.Key) && x.Hid != parent.Key)
+                              .Select(x => x.Hid)
+                              .List<string>();
+
+                Assert.Equal(parent.Value, childs);
+            }
+        }
+
+        [Fact]
         public void GetAncestorTest()
         {
             using (var s = Config.SessionFactory.OpenSession())

@@ -22,8 +22,8 @@ namespace Tests
         {
             var connStrBuilder = new System.Data.SqlClient.SqlConnectionStringBuilder
             {
-                DataSource = @"dev13-don\SANDBOX",
-                InitialCatalog = "NHHierarchy",
+                DataSource = @"qa-db1",
+                InitialCatalog = "WertmanSandbox",
                 IntegratedSecurity = true
             };
 

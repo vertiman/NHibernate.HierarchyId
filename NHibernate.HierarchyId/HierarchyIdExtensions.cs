@@ -1,4 +1,5 @@
-﻿using NHibernate.Cfg;
+﻿using Microsoft.SqlServer.Types;
+using NHibernate.Cfg;
 using NHibernate.Dialect.Function;
 using NHibernate.HierarchyId.Linq;
 using NHibernate.Impl;

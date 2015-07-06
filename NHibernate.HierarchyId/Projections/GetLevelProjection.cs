@@ -20,7 +20,7 @@ namespace NHibernate.HierarchyId.Projections
         {
             var loc = position * GetHashCode();
             var val = _projection.ToSqlString(criteria, loc, criteriaQuery, enabledFilters);
-            val = StringHelper.RemoveAsAliasesFromSql(val);
+            val = HierarchyIdStringHelper.RemoveAsAliasesFromSql(val);
 
             var ret = new SqlStringBuilder()
                 .Add(val)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq.Expressions;
+using Microsoft.SqlServer.Types;
 using NHibernate.Criterion;
 using NHibernate.HierarchyId.Criterion;
 using NHibernate.Impl;
@@ -19,7 +20,5 @@ namespace NHibernate.HierarchyId
             var value = (string)ExpressionProcessor.FindValue(methodCallExpression.Arguments[1]);
             return new IsDescendantOfExpression(projection,value);
         }
-
-
     }
 }

@@ -13,7 +13,8 @@
         <tags>ORM DataBase DAL ObjectRelationalMapping NHibernate</tags>
         <dependencies>
             <group targetFramework=".NETFramework4.0">
-                <dependency id="NHibernate" version="[3.3,)" />
+                <dependency id="NHibernate" version="[4.0,)" />
+                <dependency id="Microsoft.SqlServer.Types" version="[11.0,)" />
             </group>
         </dependencies>
         <frameworkAssemblies>

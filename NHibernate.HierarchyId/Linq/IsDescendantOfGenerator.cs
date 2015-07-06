@@ -3,6 +3,7 @@
 using System.Collections.ObjectModel;
 using System.Linq.Expressions;
 using System.Reflection;
+using Microsoft.SqlServer.Types;
 using NHibernate.Hql.Ast;
 using NHibernate.Linq;
 using NHibernate.Linq.Functions;

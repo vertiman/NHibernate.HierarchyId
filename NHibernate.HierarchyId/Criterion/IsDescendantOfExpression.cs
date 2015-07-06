@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.SqlServer.Types;
 using NHibernate.Criterion;
 using NHibernate.Engine;
 using NHibernate.SqlCommand;
@@ -24,14 +25,14 @@ namespace NHibernate.HierarchyId.Criterion
             _propertyName = propertyName;
             _projection = NHibernate.Criterion.Projections.Property(_propertyName);
             _value = value;
-            _typedValue = new TypedValue(NHibernateUtil.String, _value, EntityMode.Poco);
+            _typedValue = new TypedValue(new SqlHierarchyIdType(), _value, EntityMode.Poco);
         }
 
         public IsDescendantOfExpression(IProjection projection, string value)
         {
             _projection = projection;
             _value = value;
-            _typedValue = new TypedValue(NHibernateUtil.String, _value, EntityMode.Poco);
+            _typedValue = new TypedValue(new SqlHierarchyIdType(), _value, EntityMode.Poco);
         }
 
         public override SqlString ToSqlString(ICriteria criteria, ICriteriaQuery criteriaQuery,
